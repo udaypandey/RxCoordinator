@@ -18,7 +18,7 @@ class EmailCoordinator: CoordinatorType {
         self.context = context
     }
 
-    func fsm(event: EmailViewModel.Event) {
+    func loop(event: EmailViewModel.Event) {
         // Delegate to Flow coordinator
 
     }
@@ -42,7 +42,7 @@ extension EmailCoordinator: ReactiveCompatible {}
 extension Reactive where Base: EmailCoordinator {
     var fsm: Binder<EmailViewModel.Event> {
         return Binder(self.base) { c, event in
-            c.fsm(event: event)
+            c.loop(event: event)
         }
     }
 }

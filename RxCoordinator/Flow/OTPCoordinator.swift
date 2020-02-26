@@ -1,8 +1,8 @@
 //
-//  RegistrationCoordinator.swift
+//  OTPCoordinator.swift
 //  RxCoordinator
 //
-//  Created by Uday Pandey on 25/02/2020.
+//  Created by Uday Pandey on 26/02/2020.
 //  Copyright © 2020 TSBMobile. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-extension RegistrationCoordinator {
+extension OTPCoordinator {
     enum Event {
         case initial
         case didFinishFirstName(_ firstName: String)
@@ -18,7 +18,7 @@ extension RegistrationCoordinator {
     }
 }
 
-class RegistrationCoordinator: CoordinatorType {
+class OTPCoordinator: CoordinatorType {
     func start() {
         print("RegistrationCoordinator: start")
 
@@ -46,7 +46,7 @@ class RegistrationCoordinator: CoordinatorType {
         // for FSM to run correctly. This is just a sample
         // implementation and accepts all incoming events even
         // if its not in the right state.
-        
+
         // Will move the FSM object on its own, this is just a
         // placeholder. It will be injected or created as part
         // of init and used to drive based on incoming events.
@@ -65,9 +65,9 @@ class RegistrationCoordinator: CoordinatorType {
 
 }
 
-extension RegistrationCoordinator: ReactiveCompatible {}
-extension Reactive where Base: RegistrationCoordinator {
-    var fsm: Binder<RegistrationCoordinator.Event> {
+extension OTPCoordinator: ReactiveCompatible {}
+extension Reactive where Base: OTPCoordinator {
+    var fsm: Binder<OTPCoordinator.Event> {
         return Binder(self.base) { c, event in
             c.loop(event: event)
         }

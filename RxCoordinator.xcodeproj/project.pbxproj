@@ -23,6 +23,9 @@
 		1CEADEB024056AB500944A26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEAF24056AB500944A26 /* Model.swift */; };
 		1CEADEB224056E0F00944A26 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEB124056E0F00944A26 /* CoordinatorType.swift */; };
 		1CEADEB524056E4B00944A26 /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEB424056E4B00944A26 /* RegistrationCoordinator.swift */; };
+		1CEADEB724062BDF00944A26 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEB624062BDF00944A26 /* OnboardingCoordinator.swift */; };
+		1CEADEB924062BF000944A26 /* OTPCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEB824062BF000944A26 /* OTPCoordinator.swift */; };
+		1CEADEBB24062D8B00944A26 /* IDVerificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEBA24062D8B00944A26 /* IDVerificationCoordinator.swift */; };
 		3979862A2A72B5CAA94599F6 /* Pods_RxCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B7E622043A6278B241FCAA /* Pods_RxCoordinator.framework */; };
 		E1B013F21101170C7E2C05E0 /* Pods_RxCoordinatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009B66A6948C703E7D349A4 /* Pods_RxCoordinatorTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,9 @@
 		1CEADEAF24056AB500944A26 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1CEADEB124056E0F00944A26 /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		1CEADEB424056E4B00944A26 /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
+		1CEADEB624062BDF00944A26 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		1CEADEB824062BF000944A26 /* OTPCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPCoordinator.swift; sourceTree = "<group>"; };
+		1CEADEBA24062D8B00944A26 /* IDVerificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDVerificationCoordinator.swift; sourceTree = "<group>"; };
 		41B26ED47D353641912EF123 /* Pods-RxCoordinator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinator.release.xcconfig"; path = "Target Support Files/Pods-RxCoordinator/Pods-RxCoordinator.release.xcconfig"; sourceTree = "<group>"; };
 		93E6B7288CD20B98B043344B /* Pods-RxCoordinatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinatorTests.debug.xcconfig"; path = "Target Support Files/Pods-RxCoordinatorTests/Pods-RxCoordinatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		957B11C13C8C6D4482286C5F /* Pods-RxCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-RxCoordinator/Pods-RxCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				1CEADEB424056E4B00944A26 /* RegistrationCoordinator.swift */,
+				1CEADEB624062BDF00944A26 /* OnboardingCoordinator.swift */,
+				1CEADEB824062BF000944A26 /* OTPCoordinator.swift */,
+				1CEADEBA24062D8B00944A26 /* IDVerificationCoordinator.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -403,10 +412,13 @@
 				1CEADE7E2405677C00944A26 /* ViewController.swift in Sources */,
 				1CEADEAD24056A9D00944A26 /* EmailViewController.swift in Sources */,
 				1CEADE7C2405677C00944A26 /* AppDelegate.swift in Sources */,
+				1CEADEB724062BDF00944A26 /* OnboardingCoordinator.swift in Sources */,
 				1CEADEA924056A8A00944A26 /* EmailViewModel.swift in Sources */,
+				1CEADEBB24062D8B00944A26 /* IDVerificationCoordinator.swift in Sources */,
 				1CEADEA7240568B900944A26 /* ViewModelType.swift in Sources */,
 				1CEADEB024056AB500944A26 /* Model.swift in Sources */,
 				1CEADEA42405687A00944A26 /* FirstNameViewController.swift in Sources */,
+				1CEADEB924062BF000944A26 /* OTPCoordinator.swift in Sources */,
 				1CEADEB224056E0F00944A26 /* CoordinatorType.swift in Sources */,
 				1CEADEAB24056A9500944A26 /* EmailCoordinator.swift in Sources */,
 				1CEADEA22405686C00944A26 /* FirstNameCoordinator.swift in Sources */,

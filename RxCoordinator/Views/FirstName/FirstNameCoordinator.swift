@@ -19,7 +19,7 @@ class FirstNameCoordinator: CoordinatorType {
         self.context = context
     }
 
-    func fsm(event: FirstNameViewModel.Event) {
+    func loop(event: FirstNameViewModel.Event) {
         // Delegate to Flow coordinator
     }
 
@@ -44,7 +44,7 @@ extension FirstNameCoordinator: ReactiveCompatible {}
 extension Reactive where Base: FirstNameCoordinator {
     var fsm: Binder<FirstNameViewModel.Event> {
         return Binder(self.base) { c, event in
-            c.fsm(event: event)
+            c.loop(event: event)
         }
     }
 }

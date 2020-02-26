@@ -10,6 +10,6 @@ import Foundation
 
 protocol CoordinatorType {
     associatedtype Event
-    func fsm(event: Event)
+    func loop(event: Event)
 //    func start()
 }
