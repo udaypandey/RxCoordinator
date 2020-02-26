@@ -1,8 +1,8 @@
 //
-//  RegistrationCoordinator.swift
+//  OTPCoordinator.swift
 //  RxCoordinator
 //
-//  Created by Uday Pandey on 25/02/2020.
+//  Created by Uday Pandey on 26/02/2020.
 //  Copyright © 2020 TSBMobile. All rights reserved.
 //
 
@@ -10,31 +10,31 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-extension RegistrationCoordinator {
+extension PhoneValidationCoordinator {
     enum Event {
         case initial
-        case didFinishFirstName(_ firstName: String)
-        case didFinishEmail
+        case didSubmitPhoneNumber
+        case didValidateOTP
     }
 }
 
-class RegistrationCoordinator: CoordinatorType {
+class PhoneValidationCoordinator: CoordinatorType {
     private let context: UINavigationController
     weak var parentCoordinator: OnboardingCoordinator?
 
     private var model: Model?
 
-    private let firstNameCoordinator: FirstNameCoordinator
-    private let emailCoordinator: EmailCoordinator
+    private let phoneCoordinator: PhoneCoordinator
+    private let otpCoordinator: OTPCoordinator
 
     init(context: UINavigationController) {
         self.context = context
 
-        firstNameCoordinator = FirstNameCoordinator(context: context)
-        emailCoordinator = EmailCoordinator(context: context)
+        phoneCoordinator = PhoneCoordinator(context: context)
+        otpCoordinator = OTPCoordinator(context: context)
 
-        firstNameCoordinator.parentCoordinator = self
-        emailCoordinator.parentCoordinator = self
+        phoneCoordinator.parentCoordinator = self
+        otpCoordinator.parentCoordinator = self
     }
 
     func start() {
@@ -48,20 +48,18 @@ class RegistrationCoordinator: CoordinatorType {
         let newEvent = fsm(event: event)
         switch newEvent {
         case .initial:
-            firstNameCoordinator.start()
+            phoneCoordinator.start()
 
-        case .didFinishFirstName(let firstName):
-            model = Model(firstName: firstName)
-            emailCoordinator.start(model: model!)
+        case .didSubmitPhoneNumber:
+            otpCoordinator.start()
 
-        case .didFinishEmail:
-            parentCoordinator?.loop(event: .didFinishRegistration)
-            break
+        case .didValidateOTP:
+            parentCoordinator?.loop(event: .didFinishPhoneValidation)
         }
     }
 }
 
-extension RegistrationCoordinator {
+extension PhoneValidationCoordinator {
     // This is the brain of the coordinator and for the spike
     // this does not do anything and returns the same event back
 
@@ -78,9 +76,9 @@ extension RegistrationCoordinator {
     }
 }
 
-extension RegistrationCoordinator: ReactiveCompatible {}
-extension Reactive where Base: RegistrationCoordinator {
-    var fsm: Binder<RegistrationCoordinator.Event> {
+extension PhoneValidationCoordinator: ReactiveCompatible {}
+extension Reactive where Base: PhoneValidationCoordinator {
+    var fsm: Binder<PhoneValidationCoordinator.Event> {
         return Binder(self.base) { c, event in
             c.loop(event: event)
         }

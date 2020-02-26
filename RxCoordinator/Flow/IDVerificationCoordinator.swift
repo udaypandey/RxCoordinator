@@ -21,14 +21,13 @@ class IDVerificationCoordinator: CoordinatorType {
     private let context: UINavigationController
     weak var parentCoordinator: OnboardingCoordinator?
 
-    private let firstNameCoordinator: FirstNameCoordinator
-    private let emailCoordinator: EmailCoordinator
+    private let idVerifiyCoordinator: IDCoordinator
 
     init(context: UINavigationController) {
         self.context = context
 
-        firstNameCoordinator = FirstNameCoordinator(context: context)
-        emailCoordinator = EmailCoordinator(context: context)
+        idVerifiyCoordinator = IDCoordinator(context: context)
+        idVerifiyCoordinator.parentCoordinator = self
     }
 
     func start() {
@@ -39,21 +38,31 @@ class IDVerificationCoordinator: CoordinatorType {
     func loop(event: Event) {
         print("\(type(of: self)): loop: \(event)")
 
-        // MARK: TODO: Ideally there should a state and an event
-        // for FSM to run correctly. This is just a sample
-        // implementation and accepts all incoming events even
-        // if its not in the right state.
-
-        // Will move the FSM object on its own, this is just a
-        // placeholder. It will be injected or created as part
-        // of init and used to drive based on incoming events.
-        switch event {
+        let newEvent = fsm(event: event)
+        switch newEvent {
         case .initial:
-            firstNameCoordinator.start()
+            idVerifiyCoordinator.start()
 
         case .didSubmitVerification:
             break
         }
+    }
+}
+
+extension IDVerificationCoordinator {
+    // This is the brain of the coordinator and for the spike
+    // this does not do anything and returns the same event back
+
+    // MARK: TODO: Ideally there should a state and an event
+    // for FSM to run correctly. This is just a sample
+    // implementation and accepts all incoming events even
+    // if its not in the right state.
+
+    // Will move the FSM object on its own, this is just a
+    // placeholder. It will be injected or created as part
+    // of init and used to drive based on incoming events.
+    func fsm(event: Event) -> Event {
+        return event
     }
 }
 

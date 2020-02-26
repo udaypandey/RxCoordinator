@@ -14,7 +14,7 @@ extension OnboardingCoordinator {
     enum Event {
         case initial
         case didFinishRegistration
-        case didFinishOTP
+        case didFinishPhoneValidation
         case didFinishVerification
     }
 }
@@ -28,18 +28,18 @@ class OnboardingCoordinator: CoordinatorType {
     // Can create on the fly and let go when not needed in the real
     // implementation
     private let registrationCoordinator: RegistrationCoordinator
-    private let otpCoordinator: OTPCoordinator
+    private let phoneValidationCoordinator: PhoneValidationCoordinator
     private let idVerificationCoordinator: IDVerificationCoordinator
 
     init(context: UINavigationController) {
         self.context = context
 
         registrationCoordinator = RegistrationCoordinator(context: context)
-        otpCoordinator = OTPCoordinator(context: context)
+        phoneValidationCoordinator = PhoneValidationCoordinator(context: context)
         idVerificationCoordinator = IDVerificationCoordinator(context: context)
 
         registrationCoordinator.parentCoordinator = self
-        otpCoordinator.parentCoordinator = self
+        phoneValidationCoordinator.parentCoordinator = self
         idVerificationCoordinator.parentCoordinator = self
     }
 
@@ -49,7 +49,7 @@ class OnboardingCoordinator: CoordinatorType {
     }
 
     func loop(event: Event) {
-        print("\(type(of: self)): fsm: \(event)")
+        print("\(type(of: self)): loop: \(event)")
 
         let newEvent = fsm(event: event)
         switch newEvent {
@@ -57,9 +57,9 @@ class OnboardingCoordinator: CoordinatorType {
             registrationCoordinator.start()
 
         case .didFinishRegistration:
-            otpCoordinator.start()
+            phoneValidationCoordinator.start()
 
-        case .didFinishOTP:
+        case .didFinishPhoneValidation:
             idVerificationCoordinator.start()
 
         case .didFinishVerification:
@@ -81,8 +81,6 @@ extension OnboardingCoordinator {
     // placeholder. It will be injected or created as part
     // of init and used to drive based on incoming events.
     func fsm(event: Event) -> Event {
-        print("\(type(of: self)): fsm: \(event)")
-
         return event
     }
 }
