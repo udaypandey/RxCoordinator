@@ -19,13 +19,8 @@ extension OTPCoordinator {
 }
 
 class OTPCoordinator: CoordinatorType {
-    func start() {
-        print("RegistrationCoordinator: start")
-
-        loop(event: .initial)
-    }
-
     private let context: UINavigationController
+    weak var parentCoordinator: OnboardingCoordinator?
 
     private var model: Model?
 
@@ -39,8 +34,13 @@ class OTPCoordinator: CoordinatorType {
         emailCoordinator = EmailCoordinator(context: context)
     }
 
+    func start() {
+        print("\(type(of: self)): start")
+        loop(event: .initial)
+    }
+
     func loop(event: Event) {
-        print("RegistrationCoordinator: fsm: \(event)")
+        print("\(type(of: self)): loop: \(event)")
 
         // MARK: TODO: Ideally there should a state and an event
         // for FSM to run correctly. This is just a sample

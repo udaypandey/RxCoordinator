@@ -13,5 +13,14 @@ class EmailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = .green
+        title = "Email"
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.viewModel.inputs
+                .continueTappedObserver.onNext(())
+        }
+
     }
 }

@@ -47,7 +47,6 @@ extension FirstNameViewModel {
     }
 
     enum Event {
-        case initial
         case didFinishFirstName(_ firstName: String)
     }
 }

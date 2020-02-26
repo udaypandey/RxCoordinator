@@ -17,7 +17,7 @@ struct EmailViewModel: ViewModelType {
 
     init(model: Model) {
         let continueButton = PublishSubject<Void>()
-        let email = BehaviorSubject<String>(value: "Robert")
+        let email = BehaviorSubject<String>(value: "robert.jordan@gmail.com")
 
         self.inputs = Inputs(continueTappedObserver: continueButton.asObserver())
 

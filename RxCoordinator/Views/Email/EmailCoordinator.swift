@@ -13,6 +13,7 @@ import RxSwift
 class EmailCoordinator: CoordinatorType {
     private let disposeBag = DisposeBag()
     private var context: UINavigationController
+    weak var parentCoordinator: RegistrationCoordinator?
 
     init(context: UINavigationController) {
         self.context = context
@@ -20,10 +21,15 @@ class EmailCoordinator: CoordinatorType {
 
     func loop(event: EmailViewModel.Event) {
         // Delegate to Flow coordinator
-
+        switch event {
+        case .didFinishEmail:
+            parentCoordinator?.loop(event: .didFinishEmail)
+        }
     }
 
     func start(model: Model) {
+        print("\(type(of: self)): start")
+
         let viewModel = EmailViewModel(model: model)
 
         let viewController = EmailViewController(nibName: nil, bundle: nil)

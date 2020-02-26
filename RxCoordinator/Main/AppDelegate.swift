@@ -10,7 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private var rootCoordinator: RegistrationCoordinator!
+    private var rootCoordinator: OnboardingCoordinator!
 
     var window: UIWindow?
 
@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let rootViewController = UIViewController(nibName: nil, bundle: nil)
         let navController = UINavigationController(rootViewController: rootViewController)
-        rootCoordinator = RegistrationCoordinator(context: navController)
+        rootCoordinator = OnboardingCoordinator(context: navController)
 
         rootCoordinator.start()
 
+        window?.rootViewController = navController
         return true
     }
 

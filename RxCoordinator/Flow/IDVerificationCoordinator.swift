@@ -19,7 +19,7 @@ extension IDVerificationCoordinator {
 
 class IDVerificationCoordinator: CoordinatorType {
     private let context: UINavigationController
-
+    weak var parentCoordinator: OnboardingCoordinator?
 
     private let firstNameCoordinator: FirstNameCoordinator
     private let emailCoordinator: EmailCoordinator
@@ -32,13 +32,12 @@ class IDVerificationCoordinator: CoordinatorType {
     }
 
     func start() {
-        print("RegistrationCoordinator: start")
-
+        print("\(type(of: self)): start")
         loop(event: .initial)
     }
 
     func loop(event: Event) {
-        print("RegistrationCoordinator: fsm: \(event)")
+        print("\(type(of: self)): loop: \(event)")
 
         // MARK: TODO: Ideally there should a state and an event
         // for FSM to run correctly. This is just a sample

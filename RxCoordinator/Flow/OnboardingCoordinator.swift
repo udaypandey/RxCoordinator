@@ -15,6 +15,7 @@ extension OnboardingCoordinator {
         case initial
         case didFinishRegistration
         case didFinishOTP
+        case didFinishVerification
     }
 }
 
@@ -36,6 +37,10 @@ class OnboardingCoordinator: CoordinatorType {
         registrationCoordinator = RegistrationCoordinator(context: context)
         otpCoordinator = OTPCoordinator(context: context)
         idVerificationCoordinator = IDVerificationCoordinator(context: context)
+
+        registrationCoordinator.parentCoordinator = self
+        otpCoordinator.parentCoordinator = self
+        idVerificationCoordinator.parentCoordinator = self
     }
 
     func start() {
@@ -55,6 +60,9 @@ class OnboardingCoordinator: CoordinatorType {
             otpCoordinator.start()
 
         case .didFinishOTP:
+            idVerificationCoordinator.start()
+
+        case .didFinishVerification:
             break
         }
     }

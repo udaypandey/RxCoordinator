@@ -21,4 +21,23 @@ struct Model {
             return Disposables.create()
         }
     }
+
+    func addUserPhone(phone: String) -> Observable<Bool> {
+        return Observable<Bool>.create { observer in
+            observer.onNext(true)
+            observer.onCompleted()
+
+            return Disposables.create()
+        }
+    }
+
+    func verifyOTP(otp: String) -> Observable<Bool> {
+        return Observable<Bool>.create { observer in
+            observer.onNext(true)
+            observer.onCompleted()
+
+            return Disposables.create()
+        }
+    }
 }
+

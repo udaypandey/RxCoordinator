@@ -14,6 +14,7 @@ import UIKit
 class FirstNameCoordinator: CoordinatorType {
     private let disposeBag = DisposeBag()
     private var context: UINavigationController
+    weak var parentCoordinator: RegistrationCoordinator?
 
     init(context: UINavigationController) {
         self.context = context
@@ -21,10 +22,17 @@ class FirstNameCoordinator: CoordinatorType {
 
     func loop(event: FirstNameViewModel.Event) {
         // Delegate to Flow coordinator
+        switch event {
+        case .didFinishFirstName(let name):
+            parentCoordinator?.loop(event: .didFinishFirstName(name))
+
+        default:
+            break
+        }
     }
 
     func start() {
-        print("FirstNameCoordinator: start")
+        print("\(type(of: self)): start")
 
         let viewModel = FirstNameViewModel()
 

@@ -19,13 +19,8 @@ extension RegistrationCoordinator {
 }
 
 class RegistrationCoordinator: CoordinatorType {
-    func start() {
-        print("RegistrationCoordinator: start")
-
-        loop(event: .initial)
-    }
-
     private let context: UINavigationController
+    weak var parentCoordinator: OnboardingCoordinator?
 
     private var model: Model?
 
@@ -37,20 +32,21 @@ class RegistrationCoordinator: CoordinatorType {
 
         firstNameCoordinator = FirstNameCoordinator(context: context)
         emailCoordinator = EmailCoordinator(context: context)
+
+        firstNameCoordinator.parentCoordinator = self
+        emailCoordinator.parentCoordinator = self
+    }
+
+    func start() {
+        print("\(type(of: self)): start")
+        loop(event: .initial)
     }
 
     func loop(event: Event) {
-        print("RegistrationCoordinator: fsm: \(event)")
+        print("\(type(of: self)): fsm: \(event)")
 
-        // MARK: TODO: Ideally there should a state and an event
-        // for FSM to run correctly. This is just a sample
-        // implementation and accepts all incoming events even
-        // if its not in the right state.
-        
-        // Will move the FSM object on its own, this is just a
-        // placeholder. It will be injected or created as part
-        // of init and used to drive based on incoming events.
-        switch event {
+        let newEvent = fsm(event: event)
+        switch newEvent {
         case .initial:
             firstNameCoordinator.start()
 
@@ -59,10 +55,29 @@ class RegistrationCoordinator: CoordinatorType {
             emailCoordinator.start(model: model!)
 
         case .didFinishEmail:
+            parentCoordinator?.loop(event: .didFinishRegistration)
             break
         }
     }
+}
 
+extension RegistrationCoordinator {
+    // This is the brain of the coordinator and for the spike
+    // this does not do anything and returns the same event back
+
+    // MARK: TODO: Ideally there should a state and an event
+    // for FSM to run correctly. This is just a sample
+    // implementation and accepts all incoming events even
+    // if its not in the right state.
+
+    // Will move the FSM object on its own, this is just a
+    // placeholder. It will be injected or created as part
+    // of init and used to drive based on incoming events.
+    func fsm(event: Event) -> Event {
+        print("\(type(of: self)): fsm: \(event)")
+
+        return event
+    }
 }
 
 extension RegistrationCoordinator: ReactiveCompatible {}
