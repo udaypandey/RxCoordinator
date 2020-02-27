@@ -28,7 +28,7 @@ class EmailCoordinator: CoordinatorType {
     }
 
     func start(model: Model) {
-        print("\(type(of: self)): start")
+        indentPrint(2, "\(type(of: self)): start")
 
         let viewModel = EmailViewModel(model: model)
 

@@ -38,12 +38,12 @@ class RegistrationCoordinator: CoordinatorType {
     }
 
     func start() {
-        print("\(type(of: self)): start")
+        indentPrint(1, "\(type(of: self)): start")
         loop(event: .initial)
     }
 
     func loop(event: Event) {
-        print("\(type(of: self)): loop: \(event)")
+        indentPrint(1, "\(type(of: self)): loop: \(event)")
 
         let newEvent = fsm(event: event)
         switch newEvent {

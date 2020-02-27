@@ -29,7 +29,7 @@ class IDCoordinator: CoordinatorType {
     }
 
     func start() {
-        print("\(type(of: self)): start")
+        indentPrint(2, "\(type(of: self)): start")
 
         let viewModel = IDViewModel()
 

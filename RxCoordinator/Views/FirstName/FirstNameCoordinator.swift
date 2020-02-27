@@ -25,14 +25,11 @@ class FirstNameCoordinator: CoordinatorType {
         switch event {
         case .didFinishFirstName(let name):
             parentCoordinator?.loop(event: .didFinishFirstName(name))
-
-        default:
-            break
         }
     }
 
     func start() {
-        print("\(type(of: self)): start")
+        indentPrint(2, "\(type(of: self)): start")
 
         let viewModel = FirstNameViewModel()
 

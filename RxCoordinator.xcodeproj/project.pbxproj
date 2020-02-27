@@ -35,6 +35,7 @@
 		1CEADECF24063A8100944A26 /* IDCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC524063A8100944A26 /* IDCoordinator.swift */; };
 		1CEADED024063A8100944A26 /* IDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC624063A8100944A26 /* IDViewModel.swift */; };
 		1CEADED124063A8100944A26 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC724063A8100944A26 /* IDViewController.swift */; };
+		1CEADED52407BF5700944A26 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADED42407BF5700944A26 /* Helper.swift */; };
 		3979862A2A72B5CAA94599F6 /* Pods_RxCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B7E622043A6278B241FCAA /* Pods_RxCoordinator.framework */; };
 		E1B013F21101170C7E2C05E0 /* Pods_RxCoordinatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009B66A6948C703E7D349A4 /* Pods_RxCoordinatorTests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		1CEADEC524063A8100944A26 /* IDCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEC624063A8100944A26 /* IDViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewModel.swift; sourceTree = "<group>"; };
 		1CEADEC724063A8100944A26 /* IDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		1CEADED42407BF5700944A26 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		41B26ED47D353641912EF123 /* Pods-RxCoordinator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinator.release.xcconfig"; path = "Target Support Files/Pods-RxCoordinator/Pods-RxCoordinator.release.xcconfig"; sourceTree = "<group>"; };
 		93E6B7288CD20B98B043344B /* Pods-RxCoordinatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinatorTests.debug.xcconfig"; path = "Target Support Files/Pods-RxCoordinatorTests/Pods-RxCoordinatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		957B11C13C8C6D4482286C5F /* Pods-RxCoordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinator.debug.xcconfig"; path = "Target Support Files/Pods-RxCoordinator/Pods-RxCoordinator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		1CEADE7A2405677C00944A26 /* RxCoordinator */ = {
 			isa = PBXGroup;
 			children = (
+				1CEADED32407BF4800944A26 /* Common */,
 				1CEADEB324056E2C00944A26 /* Flow */,
 				1CEADEAE24056AAC00944A26 /* Model */,
 				1CEADE9C2405681000944A26 /* Views */,
@@ -252,6 +255,14 @@
 				1CEADEC724063A8100944A26 /* IDViewController.swift */,
 			);
 			path = IDVerification;
+			sourceTree = "<group>";
+		};
+		1CEADED32407BF4800944A26 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1CEADED42407BF5700944A26 /* Helper.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		8EE146A0D279CC7AB03E03AA /* Pods */ = {
@@ -482,6 +493,7 @@
 				1CEADEAB24056A9500944A26 /* EmailCoordinator.swift in Sources */,
 				1CEADECB24063A8100944A26 /* OTPViewModel.swift in Sources */,
 				1CEADEA22405686C00944A26 /* FirstNameCoordinator.swift in Sources */,
+				1CEADED52407BF5700944A26 /* Helper.swift in Sources */,
 				1CEADEA02405682F00944A26 /* FirstNameViewModel.swift in Sources */,
 				1CEADEB524056E4B00944A26 /* RegistrationCoordinator.swift in Sources */,
 			);
