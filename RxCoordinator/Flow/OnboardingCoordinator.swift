@@ -13,7 +13,7 @@ import RxSwift
 extension OnboardingCoordinator {
     enum Event {
         case initial
-        case didFinishRegistration
+        case didFinishRegistration(_ model: Model)
         case didFinishPhoneValidation
         case didFinishVerification
     }
@@ -56,11 +56,12 @@ class OnboardingCoordinator: CoordinatorType {
         case .initial:
             registrationCoordinator.start()
 
-        case .didFinishRegistration:
-            phoneValidationCoordinator.start()
+        case .didFinishRegistration(let model):
+            self.model = model
+            phoneValidationCoordinator.start(model: self.model!)
 
         case .didFinishPhoneValidation:
-            idVerificationCoordinator.start()
+            idVerificationCoordinator.start(model: model!)
 
         case .didFinishVerification:
             break

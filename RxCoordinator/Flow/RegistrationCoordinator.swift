@@ -55,7 +55,7 @@ class RegistrationCoordinator: CoordinatorType {
             emailCoordinator.start(model: model!)
 
         case .didFinishEmail:
-            parentCoordinator?.loop(event: .didFinishRegistration)
+            parentCoordinator?.loop(event: .didFinishRegistration(model!))
             break
         }
     }

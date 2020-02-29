@@ -22,7 +22,7 @@ class PhoneValidationCoordinator: CoordinatorType {
     private let context: UINavigationController
     weak var parentCoordinator: OnboardingCoordinator?
 
-    private var model: Model?
+    var model: Model!
 
     private let phoneCoordinator: PhoneCoordinator
     private let otpCoordinator: OTPCoordinator
@@ -37,8 +37,9 @@ class PhoneValidationCoordinator: CoordinatorType {
         otpCoordinator.parentCoordinator = self
     }
 
-    func start() {
+    func start(model: Model) {
         indentPrint(1, "\(type(of: self)): start")
+        self.model = model
         loop(event: .initial)
     }
 
@@ -48,10 +49,10 @@ class PhoneValidationCoordinator: CoordinatorType {
         let newEvent = fsm(event: event)
         switch newEvent {
         case .initial:
-            phoneCoordinator.start()
+            phoneCoordinator.start(model: model)
 
         case .didSubmitPhoneNumber:
-            otpCoordinator.start()
+            otpCoordinator.start(model: model)
 
         case .didValidateOTP:
             parentCoordinator?.loop(event: .didFinishPhoneValidation)

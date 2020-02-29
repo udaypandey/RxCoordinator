@@ -16,7 +16,11 @@ struct PhoneViewModel: ViewModelType {
     let outputs: Outputs
     let flows: Flows
 
-    init() {
+    private let model: Model
+
+    init(model: Model) {
+        self.model = model
+
         let continueButton = PublishSubject<Void>()
         let phone = BehaviorSubject<String>(value: "075813435")
 
@@ -27,7 +31,11 @@ struct PhoneViewModel: ViewModelType {
 
         let didFinishPhone = continueButton
             .withLatestFrom(phone)
-            .map { Event.didFinishPhone($0) }
+            .flatMap({ phone in
+                model.addUserPhone(phone: phone)
+            })
+            .filter { $0 }
+            .map { _ in Event.didFinishPhone }
 
         self.flows = Flows(didFinishPhone: didFinishPhone)
     }
@@ -47,6 +55,6 @@ extension PhoneViewModel {
     }
 
     enum Event {
-        case didFinishPhone(_ phone: String)
+        case didFinishPhone
     }
 }

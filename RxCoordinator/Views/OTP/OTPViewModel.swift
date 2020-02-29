@@ -16,7 +16,11 @@ struct OTPViewModel: ViewModelType {
     let outputs: Outputs
     let flows: Flows
 
-    init() {
+    private let model: Model
+
+    init(model: Model) {
+        self.model = model
+
         let continueButton = PublishSubject<Void>()
         let otp = BehaviorSubject<String>(value: "123456")
 
@@ -27,7 +31,11 @@ struct OTPViewModel: ViewModelType {
 
         let didFinishOTP = continueButton
             .withLatestFrom(otp)
-            .map { Event.didFinishOTP($0) }
+            .flatMap({ otp in
+                model.verifyOTP(otp: otp )
+            })
+            .filter { $0 }
+            .map {_ in Event.didFinishOTP }
 
         self.flows = Flows(didFinishOTP: didFinishOTP)
     }
@@ -47,6 +55,6 @@ extension OTPViewModel {
     }
 
     enum Event {
-        case didFinishOTP(_ otp: String)
+        case didFinishOTP
     }
 }

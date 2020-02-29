@@ -15,7 +15,11 @@ struct EmailViewModel: ViewModelType {
     let outputs: Outputs
     let flows: Flows
 
+    private let model: Model
+
     init(model: Model) {
+        self.model = model
+
         let continueButton = PublishSubject<Void>()
         let email = BehaviorSubject<String>(value: "robert.jordan@gmail.com")
 

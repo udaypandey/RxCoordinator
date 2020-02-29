@@ -22,6 +22,7 @@ class IDVerificationCoordinator: CoordinatorType {
     weak var parentCoordinator: OnboardingCoordinator?
 
     private let idVerifiyCoordinator: IDCoordinator
+    var model: Model!
 
     init(context: UINavigationController) {
         self.context = context
@@ -30,8 +31,9 @@ class IDVerificationCoordinator: CoordinatorType {
         idVerifiyCoordinator.parentCoordinator = self
     }
 
-    func start() {
+    func start(model: Model) {
         indentPrint(1, "\(type(of: self)): start")
+        self.model = model
         loop(event: .initial)
     }
 

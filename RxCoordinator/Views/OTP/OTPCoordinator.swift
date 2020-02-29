@@ -28,10 +28,10 @@ class OTPCoordinator: CoordinatorType {
         }
     }
 
-    func start() {
+    func start(model: Model) {
         indentPrint(2, "\(type(of: self)): start")
 
-        let viewModel = OTPViewModel()
+        let viewModel = OTPViewModel(model: model)
 
         let viewController = OTPViewController(nibName: nil, bundle: nil)
         viewController.viewModel = viewModel

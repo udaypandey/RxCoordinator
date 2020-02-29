@@ -28,10 +28,10 @@ class PhoneCoordinator: CoordinatorType {
         }
     }
 
-    func start() {
+    func start(model: Model) {
         indentPrint(2, "\(type(of: self)): start")
 
-        let viewModel = PhoneViewModel()
+        let viewModel = PhoneViewModel(model: model)
 
         let viewController = PhoneViewController(nibName: nil, bundle: nil)
         viewController.viewModel = viewModel

@@ -17,7 +17,10 @@ class EmailViewController: UIViewController {
         view.backgroundColor = .green
         title = "Email"
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        indentPrint(3, "\(type(of: self)): viewDidLoad: start")
+        DispatchQueue.main.asyncAfter(deadline: .now() + Current.timer) { [weak self] in
+            indentPrint(3, "\(type(of: self)): viewDidLoad: end")
+
             self?.viewModel.inputs
                 .continueTappedObserver.onNext(())
         }
