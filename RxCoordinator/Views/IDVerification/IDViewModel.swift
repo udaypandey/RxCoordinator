@@ -27,7 +27,7 @@ struct IDViewModel: ViewModelType {
 
         let didFinishID = continueButton
             .withLatestFrom(verifyId)
-            .map { Event.didFinishID($0) }
+            .map { _ in Event.didFinishID }
 
         self.flows = Flows(didFinishID: didFinishID)
     }
@@ -47,6 +47,6 @@ extension IDViewModel {
     }
 
     enum Event {
-        case didFinishID(_ verifyId: String)
+        case didFinishID
     }
 }

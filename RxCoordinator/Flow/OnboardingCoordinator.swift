@@ -21,26 +21,11 @@ extension OnboardingCoordinator {
 
 class OnboardingCoordinator: CoordinatorType {
     private let context: UINavigationController
-
     private var model: Model?
-
-    // For simplicity and for the spike, I have created these upfront
-    // Can create on the fly and let go when not needed in the real
-    // implementation
-    private let registrationCoordinator: RegistrationCoordinator
-    private let phoneValidationCoordinator: PhoneValidationCoordinator
-    private let idVerificationCoordinator: IDVerificationCoordinator
+    private var childCoordinator: AnyObject? = nil
 
     init(context: UINavigationController) {
         self.context = context
-
-        registrationCoordinator = RegistrationCoordinator(context: context)
-        phoneValidationCoordinator = PhoneValidationCoordinator(context: context)
-        idVerificationCoordinator = IDVerificationCoordinator(context: context)
-
-        registrationCoordinator.parentCoordinator = self
-        phoneValidationCoordinator.parentCoordinator = self
-        idVerificationCoordinator.parentCoordinator = self
     }
 
     func start() {
@@ -54,14 +39,20 @@ class OnboardingCoordinator: CoordinatorType {
         let newEvent = fsm(event: event)
         switch newEvent {
         case .initial:
-            registrationCoordinator.start()
+            let coordinator = RegistrationCoordinator(context: context, parent: self)
+            childCoordinator = coordinator
+            coordinator.start()
 
         case .didFinishRegistration(let model):
             self.model = model
-            phoneValidationCoordinator.start(model: self.model!)
+            let coordinator = PhoneValidationCoordinator(context: context, model: model, parent: self)
+            childCoordinator = coordinator
+            coordinator.start()
 
         case .didFinishPhoneValidation:
-            idVerificationCoordinator.start(model: model!)
+            let coordinator = IDVerificationCoordinator(context: context, model: model!, parent: self)
+            childCoordinator = coordinator
+            coordinator.start()
 
         case .didFinishVerification:
             break

@@ -18,23 +18,15 @@ extension RegistrationCoordinator {
     }
 }
 
-class RegistrationCoordinator: CoordinatorType {
-    private let context: UINavigationController
-    weak var parentCoordinator: OnboardingCoordinator?
-
+class RegistrationCoordinator: ChildCoordinatorType {
+    let context: UINavigationController
+    weak var parent: OnboardingCoordinator?
+    let disposeBag = DisposeBag()
     private var model: Model?
 
-    private let firstNameCoordinator: FirstNameCoordinator
-    private let emailCoordinator: EmailCoordinator
-
-    init(context: UINavigationController) {
+    init(context: UINavigationController, parent: OnboardingCoordinator?) {
         self.context = context
-
-        firstNameCoordinator = FirstNameCoordinator(context: context)
-        emailCoordinator = EmailCoordinator(context: context)
-
-        firstNameCoordinator.parentCoordinator = self
-        emailCoordinator.parentCoordinator = self
+        self.parent = parent
     }
 
     func start() {
@@ -42,20 +34,20 @@ class RegistrationCoordinator: CoordinatorType {
         loop(event: .initial)
     }
 
-    func loop(event: Event) {
+    fileprivate func loop(event: Event) {
         indentPrint(1, "\(type(of: self)): loop: \(event)")
 
         let newEvent = fsm(event: event)
         switch newEvent {
         case .initial:
-            firstNameCoordinator.start()
+            FirstNameFactory.start(context: context, coordinator: self)
 
         case .didFinishFirstName(let firstName):
             model = Model(firstName: firstName)
-            emailCoordinator.start(model: model!)
+            EmailFactory.start(context: context, model: model!, coordinator: self)
 
         case .didFinishEmail:
-            parentCoordinator?.loop(event: .didFinishRegistration(model!))
+            parent?.loop(event: .didFinishRegistration(model!))
             break
         }
     }

@@ -17,33 +17,30 @@ extension IDVerificationCoordinator {
     }
 }
 
-class IDVerificationCoordinator: CoordinatorType {
+class IDVerificationCoordinator: ChildCoordinatorType {
+    let disposeBag = DisposeBag()
     private let context: UINavigationController
-    weak var parentCoordinator: OnboardingCoordinator?
+    weak var parent: OnboardingCoordinator?
+    let model: Model
 
-    private let idVerifiyCoordinator: IDCoordinator
-    var model: Model!
-
-    init(context: UINavigationController) {
+    init(context: UINavigationController, model: Model, parent: OnboardingCoordinator?) {
+        self.model = model
         self.context = context
-
-        idVerifiyCoordinator = IDCoordinator(context: context)
-        idVerifiyCoordinator.parentCoordinator = self
+        self.parent = parent
     }
 
-    func start(model: Model) {
+    func start() {
         indentPrint(1, "\(type(of: self)): start")
-        self.model = model
         loop(event: .initial)
     }
 
-    func loop(event: Event) {
+    fileprivate func loop(event: Event) {
         indentPrint(1, "\(type(of: self)): loop: \(event)")
 
         let newEvent = fsm(event: event)
         switch newEvent {
         case .initial:
-            idVerifiyCoordinator.start()
+            IDFactory.start(context: context, coordinator: self)
 
         case .didSubmitVerification:
             break

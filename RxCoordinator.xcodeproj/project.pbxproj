@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CCCA8C4240A1E0E001FB26A /* IDFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCA8C3240A1E0E001FB26A /* IDFactory.swift */; };
+		1CCCA8C6240A21F9001FB26A /* OTPFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCA8C5240A21F9001FB26A /* OTPFactory.swift */; };
+		1CCCA8C8240A2209001FB26A /* PhoneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCA8C7240A2209001FB26A /* PhoneFactory.swift */; };
+		1CCCA8CC240A2219001FB26A /* FirstNameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCA8CB240A2219001FB26A /* FirstNameFactory.swift */; };
+		1CCCA8CE240A2237001FB26A /* EmailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCA8CD240A2237001FB26A /* EmailFactory.swift */; };
 		1CEADE7C2405677C00944A26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADE7B2405677C00944A26 /* AppDelegate.swift */; };
 		1CEADE7E2405677C00944A26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADE7D2405677C00944A26 /* ViewController.swift */; };
 		1CEADE812405677C00944A26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEADE7F2405677C00944A26 /* Main.storyboard */; };
@@ -14,11 +19,9 @@
 		1CEADE862405677C00944A26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEADE842405677C00944A26 /* LaunchScreen.storyboard */; };
 		1CEADE912405677C00944A26 /* RxCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADE902405677C00944A26 /* RxCoordinatorTests.swift */; };
 		1CEADEA02405682F00944A26 /* FirstNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADE9F2405682F00944A26 /* FirstNameViewModel.swift */; };
-		1CEADEA22405686C00944A26 /* FirstNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEA12405686C00944A26 /* FirstNameCoordinator.swift */; };
 		1CEADEA42405687A00944A26 /* FirstNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEA32405687A00944A26 /* FirstNameViewController.swift */; };
 		1CEADEA7240568B900944A26 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEA6240568B900944A26 /* ViewModelType.swift */; };
 		1CEADEA924056A8A00944A26 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEA824056A8A00944A26 /* EmailViewModel.swift */; };
-		1CEADEAB24056A9500944A26 /* EmailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEAA24056A9500944A26 /* EmailCoordinator.swift */; };
 		1CEADEAD24056A9D00944A26 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEAC24056A9D00944A26 /* EmailViewController.swift */; };
 		1CEADEB024056AB500944A26 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEAF24056AB500944A26 /* Model.swift */; };
 		1CEADEB224056E0F00944A26 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEB124056E0F00944A26 /* CoordinatorType.swift */; };
@@ -27,12 +30,9 @@
 		1CEADEB924062BF000944A26 /* PhoneValidationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEB824062BF000944A26 /* PhoneValidationCoordinator.swift */; };
 		1CEADEBB24062D8B00944A26 /* IDVerificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEBA24062D8B00944A26 /* IDVerificationCoordinator.swift */; };
 		1CEADEC924063A8100944A26 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEBD24063A8100944A26 /* OTPViewController.swift */; };
-		1CEADECA24063A8100944A26 /* OTPCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEBE24063A8100944A26 /* OTPCoordinator.swift */; };
 		1CEADECB24063A8100944A26 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEBF24063A8100944A26 /* OTPViewModel.swift */; };
 		1CEADECC24063A8100944A26 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC124063A8100944A26 /* PhoneViewModel.swift */; };
-		1CEADECD24063A8100944A26 /* PhoneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC224063A8100944A26 /* PhoneCoordinator.swift */; };
 		1CEADECE24063A8100944A26 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC324063A8100944A26 /* PhoneViewController.swift */; };
-		1CEADECF24063A8100944A26 /* IDCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC524063A8100944A26 /* IDCoordinator.swift */; };
 		1CEADED024063A8100944A26 /* IDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC624063A8100944A26 /* IDViewModel.swift */; };
 		1CEADED124063A8100944A26 /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADEC724063A8100944A26 /* IDViewController.swift */; };
 		1CEADED52407BF5700944A26 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEADED42407BF5700944A26 /* Helper.swift */; };
@@ -53,6 +53,11 @@
 /* Begin PBXFileReference section */
 		0009B66A6948C703E7D349A4 /* Pods_RxCoordinatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxCoordinatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B236490937167829553A6A4 /* Pods-RxCoordinatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxCoordinatorTests.release.xcconfig"; path = "Target Support Files/Pods-RxCoordinatorTests/Pods-RxCoordinatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		1CCCA8C3240A1E0E001FB26A /* IDFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFactory.swift; sourceTree = "<group>"; };
+		1CCCA8C5240A21F9001FB26A /* OTPFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFactory.swift; sourceTree = "<group>"; };
+		1CCCA8C7240A2209001FB26A /* PhoneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFactory.swift; sourceTree = "<group>"; };
+		1CCCA8CB240A2219001FB26A /* FirstNameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNameFactory.swift; sourceTree = "<group>"; };
+		1CCCA8CD240A2237001FB26A /* EmailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailFactory.swift; sourceTree = "<group>"; };
 		1CEADE782405677C00944A26 /* RxCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEADE7B2405677C00944A26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CEADE7D2405677C00944A26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,11 +69,9 @@
 		1CEADE902405677C00944A26 /* RxCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorTests.swift; sourceTree = "<group>"; };
 		1CEADE922405677C00944A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CEADE9F2405682F00944A26 /* FirstNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNameViewModel.swift; sourceTree = "<group>"; };
-		1CEADEA12405686C00944A26 /* FirstNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNameCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEA32405687A00944A26 /* FirstNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNameViewController.swift; sourceTree = "<group>"; };
 		1CEADEA6240568B900944A26 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		1CEADEA824056A8A00944A26 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
-		1CEADEAA24056A9500944A26 /* EmailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEAC24056A9D00944A26 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		1CEADEAF24056AB500944A26 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1CEADEB124056E0F00944A26 /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -77,12 +80,9 @@
 		1CEADEB824062BF000944A26 /* PhoneValidationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidationCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEBA24062D8B00944A26 /* IDVerificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDVerificationCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEBD24063A8100944A26 /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
-		1CEADEBE24063A8100944A26 /* OTPCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEBF24063A8100944A26 /* OTPViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		1CEADEC124063A8100944A26 /* PhoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
-		1CEADEC224063A8100944A26 /* PhoneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEC324063A8100944A26 /* PhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
-		1CEADEC524063A8100944A26 /* IDCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCoordinator.swift; sourceTree = "<group>"; };
 		1CEADEC624063A8100944A26 /* IDViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewModel.swift; sourceTree = "<group>"; };
 		1CEADEC724063A8100944A26 /* IDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
 		1CEADED42407BF5700944A26 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1CEADE9F2405682F00944A26 /* FirstNameViewModel.swift */,
-				1CEADEA12405686C00944A26 /* FirstNameCoordinator.swift */,
+				1CCCA8CB240A2219001FB26A /* FirstNameFactory.swift */,
 				1CEADEA32405687A00944A26 /* FirstNameViewController.swift */,
 			);
 			path = FirstName;
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				1CEADEA824056A8A00944A26 /* EmailViewModel.swift */,
-				1CEADEAA24056A9500944A26 /* EmailCoordinator.swift */,
+				1CCCA8CD240A2237001FB26A /* EmailFactory.swift */,
 				1CEADEAC24056A9D00944A26 /* EmailViewController.swift */,
 			);
 			path = Email;
@@ -231,7 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				1CEADEBD24063A8100944A26 /* OTPViewController.swift */,
-				1CEADEBE24063A8100944A26 /* OTPCoordinator.swift */,
+				1CCCA8C5240A21F9001FB26A /* OTPFactory.swift */,
 				1CEADEBF24063A8100944A26 /* OTPViewModel.swift */,
 			);
 			path = OTP;
@@ -241,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				1CEADEC124063A8100944A26 /* PhoneViewModel.swift */,
-				1CEADEC224063A8100944A26 /* PhoneCoordinator.swift */,
+				1CCCA8C7240A2209001FB26A /* PhoneFactory.swift */,
 				1CEADEC324063A8100944A26 /* PhoneViewController.swift */,
 			);
 			path = Phone;
@@ -250,7 +250,7 @@
 		1CEADEC424063A8100944A26 /* IDVerification */ = {
 			isa = PBXGroup;
 			children = (
-				1CEADEC524063A8100944A26 /* IDCoordinator.swift */,
+				1CCCA8C3240A1E0E001FB26A /* IDFactory.swift */,
 				1CEADEC624063A8100944A26 /* IDViewModel.swift */,
 				1CEADEC724063A8100944A26 /* IDViewController.swift */,
 			);
@@ -471,28 +471,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCCA8CC240A2219001FB26A /* FirstNameFactory.swift in Sources */,
 				1CEADE7E2405677C00944A26 /* ViewController.swift in Sources */,
 				1CEADEAD24056A9D00944A26 /* EmailViewController.swift in Sources */,
 				1CEADE7C2405677C00944A26 /* AppDelegate.swift in Sources */,
 				1CEADEB724062BDF00944A26 /* OnboardingCoordinator.swift in Sources */,
-				1CEADECA24063A8100944A26 /* OTPCoordinator.swift in Sources */,
 				1CEADED124063A8100944A26 /* IDViewController.swift in Sources */,
 				1CEADEC924063A8100944A26 /* OTPViewController.swift in Sources */,
 				1CEADECE24063A8100944A26 /* PhoneViewController.swift in Sources */,
 				1CEADEA924056A8A00944A26 /* EmailViewModel.swift in Sources */,
-				1CEADECD24063A8100944A26 /* PhoneCoordinator.swift in Sources */,
 				1CEADECC24063A8100944A26 /* PhoneViewModel.swift in Sources */,
 				1CEADED024063A8100944A26 /* IDViewModel.swift in Sources */,
 				1CEADEBB24062D8B00944A26 /* IDVerificationCoordinator.swift in Sources */,
 				1CEADEA7240568B900944A26 /* ViewModelType.swift in Sources */,
 				1CEADEB024056AB500944A26 /* Model.swift in Sources */,
-				1CEADECF24063A8100944A26 /* IDCoordinator.swift in Sources */,
+				1CCCA8C8240A2209001FB26A /* PhoneFactory.swift in Sources */,
 				1CEADEA42405687A00944A26 /* FirstNameViewController.swift in Sources */,
 				1CEADEB924062BF000944A26 /* PhoneValidationCoordinator.swift in Sources */,
 				1CEADEB224056E0F00944A26 /* CoordinatorType.swift in Sources */,
-				1CEADEAB24056A9500944A26 /* EmailCoordinator.swift in Sources */,
+				1CCCA8C6240A21F9001FB26A /* OTPFactory.swift in Sources */,
 				1CEADECB24063A8100944A26 /* OTPViewModel.swift in Sources */,
-				1CEADEA22405686C00944A26 /* FirstNameCoordinator.swift in Sources */,
+				1CCCA8C4240A1E0E001FB26A /* IDFactory.swift in Sources */,
+				1CCCA8CE240A2237001FB26A /* EmailFactory.swift in Sources */,
 				1CEADED52407BF5700944A26 /* Helper.swift in Sources */,
 				1CEADEA02405682F00944A26 /* FirstNameViewModel.swift in Sources */,
 				1CEADEB524056E4B00944A26 /* RegistrationCoordinator.swift in Sources */,

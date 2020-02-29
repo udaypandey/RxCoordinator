@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol CoordinatorType {
     associatedtype Event
-    func loop(event: Event)
-//    func start()
+
+    func start()
+}
+
+protocol ChildCoordinatorType: CoordinatorType {
+    var disposeBag: DisposeBag { get }
 }

@@ -13,49 +13,41 @@ import RxSwift
 extension PhoneValidationCoordinator {
     enum Event {
         case initial
-        case didSubmitPhoneNumber
-        case didValidateOTP
+        case didFinishPhone
+        case didFinishOTP
     }
 }
 
-class PhoneValidationCoordinator: CoordinatorType {
+class PhoneValidationCoordinator: ChildCoordinatorType {
     private let context: UINavigationController
-    weak var parentCoordinator: OnboardingCoordinator?
+    weak var parent: OnboardingCoordinator?
+    let model: Model
+    let disposeBag = DisposeBag()
 
-    var model: Model!
-
-    private let phoneCoordinator: PhoneCoordinator
-    private let otpCoordinator: OTPCoordinator
-
-    init(context: UINavigationController) {
+    init(context: UINavigationController, model: Model, parent: OnboardingCoordinator?) {
+        self.model = model
         self.context = context
-
-        phoneCoordinator = PhoneCoordinator(context: context)
-        otpCoordinator = OTPCoordinator(context: context)
-
-        phoneCoordinator.parentCoordinator = self
-        otpCoordinator.parentCoordinator = self
+        self.parent = parent
     }
 
-    func start(model: Model) {
+    func start() {
         indentPrint(1, "\(type(of: self)): start")
-        self.model = model
         loop(event: .initial)
     }
 
-    func loop(event: Event) {
+    fileprivate func loop(event: Event) {
         indentPrint(1, "\(type(of: self)): loop: \(event)")
 
         let newEvent = fsm(event: event)
         switch newEvent {
         case .initial:
-            phoneCoordinator.start(model: model)
+            PhoneFactory.start(context: context, model: model, coordinator: self)
 
-        case .didSubmitPhoneNumber:
-            otpCoordinator.start(model: model)
+        case .didFinishPhone:
+            OTPFactory.start(context: context, model: model, coordinator: self)
 
-        case .didValidateOTP:
-            parentCoordinator?.loop(event: .didFinishPhoneValidation)
+        case .didFinishOTP:
+            parent?.loop(event: .didFinishPhoneValidation)
         }
     }
 }
